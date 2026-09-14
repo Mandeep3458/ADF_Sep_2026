@@ -1,0 +1,15 @@
+{
+	"name": "ADFRohit3458",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2185a638-3f46-40ed-90fa-1b78205eaffe",
+		"tenantId": "5cce3572-83a7-4b21-b490-50fdc7fd857e"
+	}
+}

@@ -1,6 +1,9 @@
 {
 	"name": "RohitIntegrationRuntime",
 	"properties": {
-		"type": "SelfHosted"
+		"type": "SelfHosted",
+		"typeProperties": {
+			"selfContainedInteractiveAuthoringEnabled": false
+		}
 	}
 }

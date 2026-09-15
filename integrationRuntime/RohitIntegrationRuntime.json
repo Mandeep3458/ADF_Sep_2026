@@ -1,0 +1,6 @@
+{
+	"name": "RohitIntegrationRuntime",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

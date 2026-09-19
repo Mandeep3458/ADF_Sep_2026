@@ -1,0 +1,31 @@
+{
+	"name": "GetChildItemName",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SourceCSVDataBlob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "adfsource"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "EmployeeID",
+				"type": "String"
+			},
+			{
+				"name": "EmployeeName",
+				"type": "String"
+			}
+		]
+	}
+}

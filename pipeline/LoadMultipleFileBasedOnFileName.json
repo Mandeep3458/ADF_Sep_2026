@@ -54,8 +54,6 @@
 						{
 							"name": "Copy data1",
 							"type": "Copy",
-							"state": "Inactive",
-							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [
 								{
 									"activity": "ChildItemName",
@@ -73,8 +71,62 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"enableStaging": false
-							}
+								"source": {
+									"type": "DelimitedTextSource",
+									"storeSettings": {
+										"type": "AzureBlobStorageReadSettings",
+										"recursive": true,
+										"enablePartitionDiscovery": false
+									},
+									"formatSettings": {
+										"type": "DelimitedTextReadSettings"
+									}
+								},
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "SourceFileLocation",
+									"type": "DatasetReference",
+									"parameters": {
+										"FileName": {
+											"value": "@variables('ChildItemName')",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DestinationLocation",
+									"type": "DatasetReference",
+									"parameters": {
+										"FolderName": {
+											"value": "@replace(variables('ChildItemName'), '.csv', '')",
+											"type": "Expression"
+										}
+									}
+								}
+							]
 						},
 						{
 							"name": "ChildItemName",
